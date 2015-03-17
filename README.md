@@ -1,2 +1,4 @@
-# html-course
-Basic files to start an html and css course
+# Appify
+
+Make your site looking like a single page application
+Vanilla js no jquery dependency

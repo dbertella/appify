@@ -1,10 +1,10 @@
 {
-  "name": "html-course",
+  "name": "appify",
   "version": "0.0.0",
   "authors": [
     "dbertella <daniele.bertella@gmail.com>"
   ],
-  "description": "File iniziali per il corso di html e css base",
+  "description": "Make your site looking like a single page application",
   "keywords": [
     "html",
     "css",
