@@ -29,7 +29,7 @@
 
 	function appify (e) {
 		e.preventDefault();
-		
+		this.classList.add("clicked");
 		var ajaxLink = this.getAttribute('href');
 		var xhr = new XMLHttpRequest();  
 		xhr.open("GET", ajaxLink, false);  

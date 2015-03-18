@@ -6,3 +6,31 @@
 
 .ciao .rossa {
   color: blue; }
+
+a {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  display: inline-block;
+  z-index: 1; }
+  a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: red;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    border-radius: 100%;
+    z-index: -1;
+    transition: -webkit-transform 15s linear;
+    transition: transform 15s linear; }
+  a.clicked:before {
+    -webkit-transform: scale(100);
+    -ms-transform: scale(100);
+    transform: scale(100); }
