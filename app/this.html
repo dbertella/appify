@@ -2,30 +2,23 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Index</title>
+	<title>This</title>
 
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
-
-
-	<h1>Index</h1>
+	<h1>This</h1>
 
 	<a href="about.html">about</a>
 	<a href="where.html">where</a>
 	<a href="what.html">what</a>
 	<a href="this.html">this</a>
-
-<script src="js/appify.js"></script>
-
 <script>
 
 	var links = document.querySelectorAll('a');
 	[].forEach.call(links, function (el) {
 		el.addEventListener('click', appify);
 	});
-
 
 	function appify (e) {
 		e.preventDefault();
