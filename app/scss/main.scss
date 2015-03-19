@@ -26,6 +26,8 @@ nav {
 		line-height: 50px;
 		text-align: center;
 		display: block;
+		color: #fff;
+		text-decoration: none;
 		z-index: 10;
 		transform: translate3d(0,0,10px);
 		&:before {
@@ -38,12 +40,15 @@ nav {
 			background: rgba(red, .3);
 			transform: scale(0);
 			border-radius: 100%;
-			z-index: -100;
+			z-index: -1;
 			transition: transform 1s linear;
 		}
-		&.clicked:before {
-			transform: scale(100);
+		&.clicked {
+			z-index: 0;
+			&:before {
+				transform: scale(100);
+
+			}
 		}
-	
 	}
 }

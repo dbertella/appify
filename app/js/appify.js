@@ -14,7 +14,15 @@ addListnerToLink();
 function appify (e) {
 	e.preventDefault();
 	removeListnerToLink();
-	this.classList.add("clicked");
+
+	var element = this;
+	[].forEach.call(document.querySelectorAll('a'), function (el) {
+		if (el.classList.contains("clicked"))
+			el.classList.remove("clicked");
+	});
+	element.classList.add("clicked");
+	
+
 	console.log(this.classList);
 	var ajaxLink = this.href;// getAttribute('href');
 	var xhr = new XMLHttpRequest();  
@@ -27,7 +35,6 @@ function appify (e) {
 	while (content.hasChildNodes()) {
 	    content.removeChild(content.lastChild);
 	}
-
 	var newDiv = document.createElement("div");
 	newDiv.className = "new-content";
 
@@ -48,5 +55,6 @@ function appify (e) {
 	document.body.removeChild(newDiv);
 	newDiv = null;
 	history.pushState(null, null, ajaxLink);
+
 	addListnerToLink();
 }

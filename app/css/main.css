@@ -28,6 +28,8 @@ nav a {
   line-height: 50px;
   text-align: center;
   display: block;
+  color: #fff;
+  text-decoration: none;
   z-index: 10;
   -webkit-transform: translate3d(0, 0, 10px);
   transform: translate3d(0, 0, 10px); }
@@ -43,10 +45,12 @@ nav a {
     -ms-transform: scale(0);
     transform: scale(0);
     border-radius: 100%;
-    z-index: -100;
+    z-index: -1;
     transition: -webkit-transform 1s linear;
     transition: transform 1s linear; }
-  nav a.clicked:before {
-    -webkit-transform: scale(100);
-    -ms-transform: scale(100);
-    transform: scale(100); }
+  nav a.clicked {
+    z-index: 0; }
+    nav a.clicked:before {
+      -webkit-transform: scale(100);
+      -ms-transform: scale(100);
+      transform: scale(100); }
