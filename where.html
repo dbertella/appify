@@ -7,38 +7,16 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-	<h1>Where</h1>
-
-	<a href="about.html">about</a>
-	<a href="where.html">where</a>
-	<a href="what.html">what</a>
-	<a href="this.html">this</a>
-<script>
-
-	var links = document.querySelectorAll('a');
-	[].forEach.call(links, function (el) {
-		el.addEventListener('click', appify);
-	});
-
-	function appify (e) {
-		e.preventDefault();
-		
-		var ajaxLink = this.getAttribute('href');
-		var xhr = new XMLHttpRequest();  
-		xhr.open("GET", ajaxLink, false);  
-		xhr.send(null);
-		console.log(xhr.responseText);
-		var strVal = xhr.responseText; 
-		var pattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im
-		var newContent = pattern.exec(strVal);
-		//var body = document.querySelector('body');
-		while (document.body.hasChildNodes()) {
-		    document.body.removeChild(document.body.lastChild);
-		}
-		document.body.innerHTML = newContent[0];
-	}
-
-	
-</script>
+	<nav>
+		<a href="/">home</a>
+		<a href="about.html">about</a>
+		<a href="where.html">where</a>
+		<a href="what.html">what</a>
+		<a href="this.html">this</a>
+	</nav>
+	<div class="content">
+		<h1>Where</h1>
+	</div>
+<script src="js/appify.js"></script>
 </body>
 </html>
