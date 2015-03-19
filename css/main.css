@@ -1,36 +1,52 @@
-.rossa {
-  color: #0fc; }
+body {
+  margin: 0;
+  padding: 0; }
 
-.ciao {
-  color: yellow; }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
 
-.ciao .rossa {
-  color: blue; }
+header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 540px;
+  background: #00BCD4;
+  color: #fff;
+  overflow: hidden; }
 
-a {
+nav li {
+  display: inline-block; }
+nav a {
   position: relative;
   height: 50px;
   width: 50px;
   line-height: 50px;
   text-align: center;
-  display: inline-block;
-  z-index: 1; }
-  a:before {
+  display: block;
+  z-index: 10;
+  -webkit-transform: translate3d(0, 0, 10px);
+  transform: translate3d(0, 0, 10px); }
+  nav a:before {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: red;
+    background: rgba(255, 0, 0, 0.3);
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0);
     border-radius: 100%;
-    z-index: -1;
-    transition: -webkit-transform 15s linear;
-    transition: transform 15s linear; }
-  a.clicked:before {
+    z-index: -100;
+    transition: -webkit-transform 1s linear;
+    transition: transform 1s linear; }
+  nav a.clicked:before {
     -webkit-transform: scale(100);
     -ms-transform: scale(100);
     transform: scale(100); }

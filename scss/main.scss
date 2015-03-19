@@ -1,39 +1,49 @@
 body {
-
+	margin: 0;
+	padding: 0;
 }
-
-.rossa {
-	color: #0fc;
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
-.ciao {
-	color: yellow;
+header {
+	display: flex;
+	justify-content: space-between;
+	height: 540px;
+	background: #00BCD4;
+	color: #fff;
+	overflow: hidden;
 }
-.ciao .rossa {
-	color: blue;
-}
-
-a {
-	position: relative;
-	height: 50px;
-	width: 50px;
-	line-height: 50px;
-	text-align: center;
-	display: inline-block;
-	z-index: 1;
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background: red;
-		transform: scale(0);
-		border-radius: 100%;
-		z-index: -1;
-		transition: transform 15s linear;
+nav {
+	li {
+		display: inline-block;
 	}
-	&.clicked:before {
-		transform: scale(100);
+	a {
+		position: relative;
+		height: 50px;
+		width: 50px;
+		line-height: 50px;
+		text-align: center;
+		display: block;
+		z-index: 10;
+		transform: translate3d(0,0,10px);
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: rgba(red, .3);
+			transform: scale(0);
+			border-radius: 100%;
+			z-index: -100;
+			transition: transform 1s linear;
+		}
+		&.clicked:before {
+			transform: scale(100);
+		}
+	
 	}
 }

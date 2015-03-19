@@ -14,7 +14,8 @@ addListnerToLink();
 function appify (e) {
 	e.preventDefault();
 	removeListnerToLink();
-	//this.classList.add("clicked");
+	this.classList.add("clicked");
+	console.log(this.classList);
 	var ajaxLink = this.href;// getAttribute('href');
 	var xhr = new XMLHttpRequest();  
 	xhr.open("GET", ajaxLink, false);  
@@ -38,7 +39,7 @@ function appify (e) {
 		newDiv.removeChild(el);
 	});
 	
-	[].forEach.call(newDiv.querySelectorAll('nav'), function (el) {
+	[].forEach.call(newDiv.querySelectorAll('header'), function (el) {
 		newDiv.removeChild(el);
 	});
 	
