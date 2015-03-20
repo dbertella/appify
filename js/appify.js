@@ -13,17 +13,31 @@ addListnerToLink();
 
 function appify (e) {
 	e.preventDefault();
+	var xPos = e.clientX;
+    var yPos = e.clientY;
+    console.log(xPos, yPos);
 	removeListnerToLink();
 
+	var coor = xPos + 'px ' + yPos + 'px';
+
+	var header = document.querySelector('header');
+	header.classList.add("clicked");
+
+	var animateBg = document.createElement("div");
+	animateBg.className = "animate-bg";
+	animateBg.style.transformOrigin = coor;	
+
+	header.appendChild(animateBg);
+
 	var element = this;
-	[].forEach.call(document.querySelectorAll('a'), function (el) {
-		if (el.classList.contains("clicked"))
-			el.classList.remove("clicked");
-	});
-	element.classList.add("clicked");
+	// [].forEach.call(document.querySelectorAll('a'), function (el) {
+	// 	if (el.classList.contains("clicked"))
+	// 		el.classList.remove("clicked");
+	// });
+	document.querySelector('header').classList.add("clicked");
 	
 
-	console.log(this.classList);
+	//console.log(this.classList);
 	var ajaxLink = this.href;// getAttribute('href');
 	var xhr = new XMLHttpRequest();  
 	xhr.open("GET", ajaxLink, false);  
