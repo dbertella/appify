@@ -14,6 +14,21 @@ header {
 	background: #00BCD4;
 	color: #fff;
 	overflow: hidden;
+	.animate-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: rgba(red, .3);
+		transform: scale(0);
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		border-radius: 100%;
+		transition: transform 10s linear;
+	}
+	&.clicked .animate-bg {
+		transform: scale(1);
+	}
 }
 nav {
 	li {
