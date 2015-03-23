@@ -1,3 +1,9 @@
+@import "normalize";
+
+* {
+	box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -14,9 +20,14 @@ header {
 	background: #00BCD4;
 	color: #fff;
 	overflow: hidden;
+	transform: translateZ(0);
+	.logo {
+		position: relative;
+		padding: 15px;
+		z-index: 99;
+	}
 	.animate-bg {
-		position: fixed;
-		background: red;
+		position: absolute;
 		width: 100%;
 		height: 0;
 		padding-bottom: 100%;
@@ -24,13 +35,11 @@ header {
 		opacity: 0;
 		transform-origin: 0 0;
 		animation-name: materialAnimation;
-	    animation-duration: 1s;
+	    animation-duration: 0.8s;
 	    animation-timing-function: linear;
-	    // animation-delay: 1s;
-	    animation-iteration-count: infinite;
-	    animation-direction: alternate;
+	    animation-iteration-count: 1;
+	    animation-fill-mode: forwards;
 		transform: translate3d(-50%, -50%, 0);
-		// transition: transform 1s linear, opacity 1s linear;
 	}
 }
 @keyframes materialAnimation {
@@ -38,9 +47,12 @@ header {
 		opacity: 0;
 		transform: scale(0) translate3d(-50%, -50%, 0);
 	}
+	50% {
+		opacity: 1;
+	}
 	100% {
 		opacity: 1;
-		transform: scale(2) translate3d(-50%, -50%, 0);
+		transform: scale(3) translate3d(-50%, -50%, 0);
 	}
 }
 nav {
@@ -58,25 +70,9 @@ nav {
 		text-decoration: none;
 		z-index: 10;
 		transform: translate3d(0,0,10px);
-		&:before {
-			content: '';
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			background: rgba(red, .3);
-			transform: scale(0);
-			border-radius: 100%;
-			z-index: -1;
-			transition: transform 1s linear;
-		}
-		&.clicked {
-			z-index: 0;
-			&:before {
-				transform: scale(100);
-
-			}
-		}
 	}
+}
+.content {
+	background: #fff;
+	z-index: 10;
 }
