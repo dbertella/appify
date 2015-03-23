@@ -9,34 +9,41 @@ var removeListnerToLink = function () {
 	});
 };
 
+var animateBg = function (e, color) {
+	var xPos = e.clientX;
+    var yPos = e.clientY;
+    var coor = xPos + 'px ' + yPos + 'px';
+    var header = document.querySelector('header');
+	var animateBg = document.createElement("div");
+	animateBg.className = "animate-bg";
+	animateBg.style.background = color;
+	//animateBg.style.transformOrigin = coor;	
+	animateBg.style.top = yPos + 'px';
+	animateBg.style.left = xPos + 'px';
+	header.appendChild(animateBg);
+	setTimeout(function () {
+		header.style.background = color;
+		header.removeChild(animateBg);
+	}, 2000);
+};
+
 addListnerToLink();
 
 function appify (e) {
 	e.preventDefault();
-	var xPos = e.clientX;
-    var yPos = e.clientY;
-    console.log(xPos, yPos);
 	removeListnerToLink();
-
-	var coor = xPos + 'px ' + yPos + 'px';
-
 	var header = document.querySelector('header');
-	header.classList.add("clicked");
-
-	var animateBg = document.createElement("div");
-	animateBg.className = "animate-bg";
-	animateBg.style.transformOrigin = coor;	
-
-	header.appendChild(animateBg);
-
 	var element = this;
+	// header.classList.toggle("clicked");
+	var color = element.classList;
+
+	animateBg(e, color);
+	
 	// [].forEach.call(document.querySelectorAll('a'), function (el) {
 	// 	if (el.classList.contains("clicked"))
 	// 		el.classList.remove("clicked");
 	// });
-	document.querySelector('header').classList.add("clicked");
 	
-
 	//console.log(this.classList);
 	var ajaxLink = this.href;// getAttribute('href');
 	var xhr = new XMLHttpRequest();  
