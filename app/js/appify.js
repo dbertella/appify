@@ -1,14 +1,23 @@
 var addListnerToLink = function () {
 	[].forEach.call(document.querySelectorAll('a'), function (el) {
 		el.addEventListener('click', appify);
+
+		var relativePath = el.getAttribute('href').split("/").pop();
+		var locationPath = location.pathname.split("/").pop();
+		
+		if (relativePath === locationPath) {
+			el.classList.add('active');
+		}
 	});
 };
+// don't know if I need it or not
 var removeListnerToLink = function () {
 	[].forEach.call(document.querySelectorAll('a'), function (el) {
 		el.removeEventListener('click', appify);
 	});
 };
 
+// animation of the header
 var animateBg = function (e, color) {
 	var xPos = e.clientX;
     var yPos = e.clientY;
@@ -27,7 +36,17 @@ var animateBg = function (e, color) {
 	}, 2000);
 };
 
+var addBgColorOnLoad = function () {
+	var el = document.querySelector('.active');
+	var color = el.getAttribute('data-color');
+	var header = document.querySelector('header');
+	header.style.background = color;
+};
+
+// on page load
 addListnerToLink();
+addBgColorOnLoad();
+
 
 function appify (e) {
 	e.preventDefault();
@@ -35,7 +54,7 @@ function appify (e) {
 	var header = document.querySelector('header');
 	var element = this;
 	// header.classList.toggle("clicked");
-	var color = element.classList;
+	var color = element.getAttribute('data-color');
 
 	animateBg(e, color);
 	
