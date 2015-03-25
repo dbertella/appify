@@ -1,16 +1,18 @@
 var addListnerToLink = function () {
-	[].forEach.call(document.querySelectorAll('a'), function (el) {
-		el.addEventListener('click', appify);
 
-		var relativePath = el.getAttribute('href').split("/").pop();
-		var locationPath = location.pathname.split("/").pop();
+	[].forEach.call(document.querySelectorAll('a'), function (el) {
+		var relativePath = '/' + el.getAttribute('href').split("/").pop();
+		var locationPath = location.pathname;
 		
 		if (relativePath === locationPath) {
 			el.classList.add('active');
+		} else {
+			el.classList.remove('active');
 		}
+		el.addEventListener('click', appify, false);
 	});
 };
-// don't know if I need it or not
+
 var removeListnerToLink = function () {
 	[].forEach.call(document.querySelectorAll('a'), function (el) {
 		el.removeEventListener('click', appify);
@@ -33,7 +35,7 @@ var animateBg = function (e, color) {
 	setTimeout(function () {
 		header.style.background = color;
 		header.removeChild(animateBg);
-	}, 2000);
+	}, 1000);
 };
 
 var addBgColorOnLoad = function () {
@@ -47,24 +49,34 @@ var addBgColorOnLoad = function () {
 addListnerToLink();
 addBgColorOnLoad();
 
+window.addEventListener("popstate", function(e) {
+    appify(e, location.pathname);
+});
 
-function appify (e) {
+function appify (e, link) {
 	e.preventDefault();
 	removeListnerToLink();
+	
 	var header = document.querySelector('header');
 	var element = this;
-	// header.classList.toggle("clicked");
-	var color = element.getAttribute('data-color');
+	var ajaxLink;
 
+	if (link) {
+		ajaxLink = link;
+	} else {
+		var relativePath = '/' + element.getAttribute('href').split("/").pop();
+		ajaxLink = relativePath;
+	}
+	
+	
+	history.pushState(null, null, ajaxLink);
+	console.log(window.history);
+	
+	addListnerToLink();
+
+	var color = document.querySelector('.active').getAttribute('data-color');
 	animateBg(e, color);
 	
-	// [].forEach.call(document.querySelectorAll('a'), function (el) {
-	// 	if (el.classList.contains("clicked"))
-	// 		el.classList.remove("clicked");
-	// });
-	
-	//console.log(this.classList);
-	var ajaxLink = this.href;// getAttribute('href');
 	var xhr = new XMLHttpRequest();  
 	xhr.open("GET", ajaxLink, false);  
 	xhr.send(null);
@@ -94,7 +106,5 @@ function appify (e) {
 
 	document.body.removeChild(newDiv);
 	newDiv = null;
-	history.pushState(null, null, ajaxLink);
-
-	addListnerToLink();
+	
 }
