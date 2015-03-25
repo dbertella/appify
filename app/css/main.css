@@ -358,8 +358,8 @@ header {
     transform-origin: 0 0;
     -webkit-animation-name: materialAnimation;
     animation-name: materialAnimation;
-    -webkit-animation-duration: 0.8s;
-    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
     -webkit-animation-timing-function: linear;
     animation-timing-function: linear;
     -webkit-animation-iteration-count: 1;

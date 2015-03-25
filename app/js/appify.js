@@ -66,12 +66,9 @@ function appify (e, link) {
 	} else {
 		var relativePath = '/' + element.getAttribute('href').split("/").pop();
 		ajaxLink = relativePath;
+		history.pushState(null, null, ajaxLink);
 	}
-	
-	
-	history.pushState(null, null, ajaxLink);
-	console.log(window.history);
-	
+		
 	addListnerToLink();
 
 	var color = document.querySelector('.active').getAttribute('data-color');
