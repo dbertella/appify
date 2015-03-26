@@ -85,6 +85,47 @@ nav {
 	}
 }
 .content {
-	background: #fff;
+	margin-top: -70px;
+	background: #f5f5f5;
+	overflow: hidden;
 	z-index: 10;
+}
+.card {
+	margin: 0 auto 70px;
+	padding: 15px;
+	width: 1200px;
+	max-width: 80%;
+	background: #fff none repeat scroll 0% 0%;
+	box-shadow: 0px 1px 2px #aaa;
+	border-radius: 3px;
+	-moz-user-select: none;
+	transform-origin: left top 0px;
+	transform: translateY(15rem) rotate(15deg);
+	opacity: 0;
+	animation: 0.5s ease 1s normal both 1 running fly-in-from-left;
+	.out & {
+		transform-origin: right top 0px;
+		animation-name: fly-out-to-right;
+		animation-delay: 0;
+	}
+}
+@keyframes fly-in-from-left {
+  from {
+    transform:translateY(100%) rotate(15deg);
+    opacity:0;
+  }
+  to {
+  	transform:translateY(0) rotate(0);
+    opacity:1;
+  }
+}
+@keyframes fly-out-to-right {
+  from {
+  	transform:translateY(0) rotate(0);
+    opacity:1;
+  }
+  to {
+    transform:translateY(100%) rotate(-15deg);
+    opacity:0;
+  }
 }

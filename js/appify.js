@@ -82,27 +82,33 @@ function appify (e, link) {
 	var pattern = /<body[^>]*>((.|[\n\r])*)<\/body>/im
 	var newContent = pattern.exec(strVal);
 	var content = document.querySelector('.content');
-	while (content.hasChildNodes()) {
-	    content.removeChild(content.lastChild);
-	}
-	var newDiv = document.createElement("div");
-	newDiv.className = "new-content";
+	content.classList.add('out');
+	setTimeout(function () {
+		content.classList.remove('out');
+		while (content.hasChildNodes()) {
+		    content.removeChild(content.lastChild);
+		}
+		var newDiv = document.createElement("div");
+		newDiv.className = "new-content";
 
-	document.body.appendChild(newDiv);
-	
-	newDiv.innerHTML = newContent[0];
-	
-	[].forEach.call(newDiv.querySelectorAll('script'), function (el) {
-		newDiv.removeChild(el);
-	});
-	
-	[].forEach.call(newDiv.querySelectorAll('header'), function (el) {
-		newDiv.removeChild(el);
-	});
-	
-	content.innerHTML = newDiv.querySelectorAll('.content')[0].innerHTML;
+		document.body.appendChild(newDiv);
+		
+		newDiv.innerHTML = newContent[0];
+		
+		[].forEach.call(newDiv.querySelectorAll('script'), function (el) {
+			newDiv.removeChild(el);
+		});
+		
+		[].forEach.call(newDiv.querySelectorAll('header'), function (el) {
+			newDiv.removeChild(el);
+		});
+		
+		content.innerHTML = newDiv.querySelectorAll('.content')[0].innerHTML;
 
-	document.body.removeChild(newDiv);
-	newDiv = null;
+		document.body.removeChild(newDiv);
+		newDiv = null;
+		
+	}, 500);
+	
 	
 }
