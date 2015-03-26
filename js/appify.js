@@ -27,13 +27,14 @@ var animateBg = function (e, color) {
     var header = document.querySelector('header');
 	var animateBg = document.createElement("div");
 	animateBg.className = "animate-bg";
-	animateBg.style.background = color;
+	//animateBg.style.background = color;
 	//animateBg.style.transformOrigin = coor;	
 	animateBg.style.top = yPos + 'px';
 	animateBg.style.left = xPos + 'px';
 	header.appendChild(animateBg);
+	header.style.background = color;
 	setTimeout(function () {
-		header.style.background = color;
+		
 		header.removeChild(animateBg);
 	}, 1000);
 };

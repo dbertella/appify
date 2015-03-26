@@ -4,6 +4,15 @@
 	box-sizing: border-box;
 }
 
+// no need of css colors
+// $colors: (header1: #00BCD4, header2: red, header3: purple, header4: black, header5: pink);
+
+// @each $class, $color in $colors {
+//   .#{$class} {
+//     background: $color;
+//   }
+// }
+
 body {
 	margin: 0;
 	padding: 0;
@@ -17,10 +26,11 @@ header {
 	display: flex;
 	justify-content: space-between;
 	height: 540px;
-	background: #00BCD4;
+	//background: #00BCD4;
 	color: #fff;
 	overflow: hidden;
 	transform: translateZ(0);
+	transition: background 0.3s ease-in-out;
 	.logo {
 		position: relative;
 		padding: 15px;
@@ -32,26 +42,28 @@ header {
 		height: 0;
 		padding-bottom: 100%;
 		border-radius: 100%;
-		opacity: 0.3;
+		opacity: 0;
+		background: #fff;
 		transform-origin: 0 0;
 		animation-name: materialAnimation;
 	    animation-duration: 0.5s;
-	    animation-timing-function: linear;
+	    animation-timing-function: ease-in-out;//cubic-bezier(0.7, 0.4, 0.4, 0.8);
 	    animation-iteration-count: 1;
 	    animation-fill-mode: forwards;
 		transform: translate3d(-50%, -50%, 0);
+		transition: background 0.5s linear;
 	}
 }
 @keyframes materialAnimation {
 	0% {
-		opacity: 0.3;
+		opacity: 0;
 		transform: scale(0) translate3d(-50%, -50%, 0);
 	}
 	50% {
-		opacity: 1;
+		opacity: 0.3;
 	}
 	100% {
-		opacity: 1;
+		opacity: 0;
 		transform: scale(3) translate3d(-50%, -50%, 0);
 	}
 }
