@@ -337,11 +337,11 @@ header {
   -ms-flex-pack: justify;
   justify-content: space-between;
   height: 540px;
-  background: #00BCD4;
   color: #fff;
   overflow: hidden;
   -webkit-transform: translateZ(0);
-  transform: translateZ(0); }
+  transform: translateZ(0);
+  transition: background 0.3s ease-in-out; }
   header .logo {
     position: relative;
     padding: 15px;
@@ -352,7 +352,8 @@ header {
     height: 0;
     padding-bottom: 100%;
     border-radius: 100%;
-    opacity: 0.3;
+    opacity: 0;
+    background: #fff;
     -webkit-transform-origin: 0 0;
     -ms-transform-origin: 0 0;
     transform-origin: 0 0;
@@ -360,40 +361,41 @@ header {
     animation-name: materialAnimation;
     -webkit-animation-duration: 0.5s;
     animation-duration: 0.5s;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0); }
+    transform: translate3d(-50%, -50%, 0);
+    transition: background 0.5s linear; }
 
 @-webkit-keyframes materialAnimation {
   0% {
-    opacity: 0.3;
+    opacity: 0;
     -webkit-transform: scale(0) translate3d(-50%, -50%, 0);
     transform: scale(0) translate3d(-50%, -50%, 0); }
 
   50% {
-    opacity: 1; }
+    opacity: 0.3; }
 
   100% {
-    opacity: 1;
+    opacity: 0;
     -webkit-transform: scale(3) translate3d(-50%, -50%, 0);
     transform: scale(3) translate3d(-50%, -50%, 0); } }
 
 @keyframes materialAnimation {
   0% {
-    opacity: 0.3;
+    opacity: 0;
     -webkit-transform: scale(0) translate3d(-50%, -50%, 0);
     transform: scale(0) translate3d(-50%, -50%, 0); }
 
   50% {
-    opacity: 1; }
+    opacity: 0.3; }
 
   100% {
-    opacity: 1;
+    opacity: 0;
     -webkit-transform: scale(3) translate3d(-50%, -50%, 0);
     transform: scale(3) translate3d(-50%, -50%, 0); } }
 
