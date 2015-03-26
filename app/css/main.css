@@ -415,5 +415,78 @@ nav a {
   transform: translate3d(0, 0, 10px); }
 
 .content {
-  background: #fff;
+  margin-top: -70px;
+  background: #f5f5f5;
+  overflow: hidden;
   z-index: 10; }
+
+.card {
+  margin: 0 auto 250px;
+  padding: 15px;
+  width: 1200px;
+  max-width: 80%;
+  background: #fff none repeat scroll 0% 0%;
+  box-shadow: 0px 1px 2px #aaa;
+  border-radius: 3px;
+  -moz-user-select: none;
+  -webkit-transform-origin: left top 0px;
+  -ms-transform-origin: left top 0px;
+  transform-origin: left top 0px;
+  -webkit-transform: translateY(15rem) rotate(15deg);
+  -ms-transform: translateY(15rem) rotate(15deg);
+  transform: translateY(15rem) rotate(15deg);
+  opacity: 0;
+  -webkit-animation: 0.5s ease 1s normal both 1 running fly-in-from-left;
+  animation: 0.5s ease 1s normal both 1 running fly-in-from-left; }
+  .out .card {
+    -webkit-transform-origin: right top 0px;
+    -ms-transform-origin: right top 0px;
+    transform-origin: right top 0px;
+    -webkit-animation-name: fly-out-to-right;
+    animation-name: fly-out-to-right;
+    -webkit-animation-delay: 0;
+    animation-delay: 0; }
+
+@-webkit-keyframes fly-in-from-left {
+  from {
+    -webkit-transform: translateY(100%) rotate(15deg);
+    transform: translateY(100%) rotate(15deg);
+    opacity: 0; }
+
+  to {
+    -webkit-transform: translateY(0) rotate(0);
+    transform: translateY(0) rotate(0);
+    opacity: 1; } }
+
+@keyframes fly-in-from-left {
+  from {
+    -webkit-transform: translateY(100%) rotate(15deg);
+    transform: translateY(100%) rotate(15deg);
+    opacity: 0; }
+
+  to {
+    -webkit-transform: translateY(0) rotate(0);
+    transform: translateY(0) rotate(0);
+    opacity: 1; } }
+
+@-webkit-keyframes fly-out-to-right {
+  from {
+    -webkit-transform: translateY(0) rotate(0);
+    transform: translateY(0) rotate(0);
+    opacity: 1; }
+
+  to {
+    -webkit-transform: translateY(100%) rotate(-15deg);
+    transform: translateY(100%) rotate(-15deg);
+    opacity: 0; } }
+
+@keyframes fly-out-to-right {
+  from {
+    -webkit-transform: translateY(0) rotate(0);
+    transform: translateY(0) rotate(0);
+    opacity: 1; }
+
+  to {
+    -webkit-transform: translateY(100%) rotate(-15deg);
+    transform: translateY(100%) rotate(-15deg);
+    opacity: 0; } }
