@@ -12,8 +12,8 @@
 var addListnerToLink = function () {
 
 	[].forEach.call(document.querySelectorAll('a'), function (el) {
-		var relativePath = '/' + el.getAttribute('href').split("/").pop();
-		var locationPath = location.pathname;
+		var relativePath = el.getAttribute('href').split("/").pop();
+		var locationPath = location.pathname.split("/").pop();
 		
 		if (relativePath === locationPath) {
 			el.classList.add('active');
@@ -62,7 +62,7 @@ addListnerToLink();
 addBgColorOnLoad();
 
 window.addEventListener("popstate", function(e) {
-    appify(e, location.pathname);
+    appify(e, location.pathname.split("/").pop());
 });
 
 function appify (e, link) {
@@ -76,7 +76,7 @@ function appify (e, link) {
 	if (link) {
 		ajaxLink = link;
 	} else {
-		var relativePath = '/' + element.getAttribute('href').split("/").pop();
+		var relativePath = element.getAttribute('href').split("/").pop();
 		ajaxLink = relativePath;
 		history.pushState(null, null, ajaxLink);
 	}
