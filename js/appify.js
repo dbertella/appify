@@ -15,7 +15,7 @@
 
 var addListnerToLink = function () {
 
-	[].forEach.call(document.querySelectorAll('a'), function (el) {
+	[].forEach.call(document.querySelectorAll('header a'), function (el) {
 		var relativePath = el.getAttribute('href').split("/").pop();
 		var locationPath = location.pathname.split("/").pop();
 		
