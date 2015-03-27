@@ -9,6 +9,10 @@
 // git push origin gh-pages // commit the changes
 // git checkout master // return to the master branch
 
+// git subtree split --prefix app -b gh-pages
+// git push -f origin gh-pages:gh-pages 
+// git branch -D gh-pages 
+
 var addListnerToLink = function () {
 
 	[].forEach.call(document.querySelectorAll('a'), function (el) {
