@@ -337,6 +337,7 @@ header {
   -ms-flex-pack: justify;
   justify-content: space-between;
   height: 540px;
+  background: #00BCD4;
   color: #fff;
   overflow: hidden;
   -webkit-transform: translateZ(0);
@@ -421,7 +422,7 @@ nav a {
   z-index: 10; }
 
 .card {
-  margin: 0 auto 250px;
+  margin: 0 auto 70px;
   padding: 15px;
   width: 1200px;
   max-width: 80%;
