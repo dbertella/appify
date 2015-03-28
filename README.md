@@ -2,7 +2,6 @@
 
 Make your site looking like a single page application
 Vanilla js no jquery dependency
-```html
 <h1>This is Appify!</h1>
 
 <h2>A simple base to start and build your next minisite.</h2>
@@ -30,4 +29,3 @@ Then you have a div with class content where you should put all the content that
 </ul>
 
 Tell me what you think <a href="https://twitter.com/_denb" target="_blank">@_denb</a></p>
-```
