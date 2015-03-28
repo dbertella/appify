@@ -19,9 +19,16 @@ var addListnerToLink = function () {
 		var relativePath = el.getAttribute('href').split("/").pop();
 		var locationPath = location.pathname.split("/").pop();
 		
-		if (relativePath === locationPath) {
+		if(locationPath ) {
+			console.log(locationPath);
+		}
+
+		if (locationPath && relativePath === locationPath) {
 			el.classList.add('active');
-		} else {
+		} else if (!locationPath && relativePath === 'index.html') {
+			el.classList.add('active');
+		}
+		else {
 			el.classList.remove('active');
 		}
 		el.addEventListener('click', appify, false);
