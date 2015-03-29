@@ -33,7 +33,7 @@
 			<p>You will find a <span class="code">header</span> with a div to let you add your logo and a simple navigation on the right. <br>
 			Then you have a div with <span class="code">.content</span> class where you should put all the content that your page will need and a <span class="code">script</span> section at the end.</p>
 
-			<p>The <span class="code">header</span> is where the magic happens, links there have an <span class="code">EventListener</span> added to let<strong>Appify</strong> take care about the navigation. Javascript add an <span class="code">.active</span> class comparing browser url and link href and it gets the <span class="code">header</span> background-color directly from the <span class="code">data-color</span> attribute.</p>
+			<p>The <span class="code">header</span> is where the magic happens, links there have an <span class="code">EventListener</span> added to let <strong>Appify</strong> take care about the navigation. Javascript add an <span class="code">.active</span> class comparing browser url and link href and it gets the <span class="code">header</span> background-color directly from the <span class="code">data-color</span> attribute.</p>
 
 			<p>Basically when you request a new page from <span class="code">header</span> section's link instead of a normal http request you will fire an <span class="code">XMLHttpRequest</span> (vanilla js). <strong>Appify</strong> will get the <span class="code">body</span> part of the page, it'll cut <span class="code">header</span> and <span class="code">script</span> section and then requested page<span class="code">.content</span> section will replace the first one.</p>
 			
