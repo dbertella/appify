@@ -1,7 +1,3 @@
-# Appify
-
-Make your site looking like a single page application
-Vanilla js no jquery dependency
 <h1>This is Appify!</h1>
 
 <h2>A simple base to start and build your next minisite.</h2>
